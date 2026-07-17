@@ -6,22 +6,16 @@ function App() {
   const [expenses, setExpenses] = useState([]);
   const [date, setDate] = useState("");
 
-  let total = 0;
-
   const calculateExpenses = () => {
     setExpenses((expn) => [...expn, { title, amount, date }]);
   };
 
-  useEffect(() => {
-    // total += expenses.amount;
-    console.log(expenses);
-    console.log(expenses.amount);
-  }, [expenses]);
+  const total = expenses.reduce((sum, expense) => {
+    return sum + expense.amount;
+  }, 0);
 
   const resetForm = () => {
     setTitle("");
-    setAmount();
-    setDate();
   };
 
   return (
@@ -32,7 +26,7 @@ function App() {
       <div className="flex justify-between items-center px-20 py-5">
         <div>
           <p>Total Expenses</p>
-          <p className="text-5xl font-bold">Rs. 000</p>
+          <p className="text-5xl font-bold">{total}</p>
         </div>
         <div>
           <button className="bg-black hover:bg-gray-700 text-white font-semibold px-5 py-2 rounded-3xl">
@@ -91,6 +85,20 @@ function App() {
           />
         </form>
       </main>
+      <div className="bg-black fixed inset-0 flex wrap justify-center gap-10 py-20">
+        {expenses.map((index, expense) => (
+          <div
+            key={index}
+            className="w-150 h-11 bg-red-50 flex justify-between items-center rounded-xl py-7 px-5"
+          >
+            <p className="font-bold text-xl">{expense.title}</p>
+            <div>
+              <p className="font-semibold ">{expense.amount}</p>
+              <p className="text-sm">2025-07-15</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
