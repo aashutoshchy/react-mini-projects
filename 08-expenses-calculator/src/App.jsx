@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(0);
   const [expenses, setExpenses] = useState([]);
   const [date, setDate] = useState("");
+
+  const [showExpenses, setShowExpenses] = useState(false);
 
   const calculateExpenses = () => {
     setExpenses((expn) => [...expn, { title, amount, date }]);
@@ -14,9 +16,11 @@ function App() {
     return sum + expense.amount;
   }, 0);
 
-  const resetForm = () => {
-    setTitle("");
-  };
+  console.log(total);
+
+  // const resetForm = () => {
+  //   setTitle("");
+  // };
 
   return (
     <>
@@ -29,7 +33,10 @@ function App() {
           <p className="text-5xl font-bold">{total}</p>
         </div>
         <div>
-          <button className="bg-black hover:bg-gray-700 text-white font-semibold px-5 py-2 rounded-3xl">
+          <button
+            onClick={() => setShowExpenses(true)}
+            className="bg-black hover:bg-gray-700 text-white font-semibold px-5 py-2 rounded-3xl"
+          >
             Show History
           </button>
         </div>
@@ -85,16 +92,24 @@ function App() {
           />
         </form>
       </main>
-      <div className="bg-black fixed inset-0 flex wrap justify-center gap-10 py-20">
-        {expenses.map((index, expense) => (
+      <div
+        className={`${showExpenses === true ? "flex" : "hidden"} flex-col items-center bg-black fixed inset-0 wrap justify-top gap-10 py-20`}
+      >
+        <p
+          onClick={() => setShowExpenses(false)}
+          className="text-white font-semibold text-2xl absolute top-10 right-20"
+        >
+          X
+        </p>
+        {expenses.map((expense, index) => (
           <div
             key={index}
             className="w-150 h-11 bg-red-50 flex justify-between items-center rounded-xl py-7 px-5"
           >
-            <p className="font-bold text-xl">{expense.title}</p>
+            <p className="font-bold text-xl text-black">{expense.title}</p>
             <div>
-              <p className="font-semibold ">{expense.amount}</p>
-              <p className="text-sm">2025-07-15</p>
+              <p className="font-semiboldtext-black ">{expense.amount}</p>
+              <p className="text-sm text-black">{expense.date}</p>
             </div>
           </div>
         ))}
