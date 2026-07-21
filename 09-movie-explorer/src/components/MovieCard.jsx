@@ -1,6 +1,6 @@
 export default function MovieCard({ item }) {
   return (
-    <div className="w-50 bg-white overflow-hidden rounded-2xl">
+    <div className="w-full bg-white overflow-hidden rounded-2xl">
       <div className="aspect-[2/3] w-full">
         <img
           src={item.poster_path}

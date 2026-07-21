@@ -7,3 +7,13 @@
   --color-primary: #c5b3d3;
   --color-text: #3d2c3a;
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
