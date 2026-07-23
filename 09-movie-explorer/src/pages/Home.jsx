@@ -1,6 +1,7 @@
 import React from "react";
 import MovieCard from "../components/MovieCard";
-import MovieRaw from "../components/MovieRaw";
+import MovieRow from "../components/MovieRow";
+import HeroBanner from "../components/HeroBanner";
 
 function Home() {
   const dummyMovies = [
@@ -94,14 +95,27 @@ function Home() {
     },
   ];
 
+  const featured = {
+    id: 1,
+    title: "Dune: Part Two",
+    overview:
+      "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+    backdrop_path:
+      "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+    vote_average: 8.2,
+  };
+
   return (
     // <div className="flex gap-10 bg-red-100 px-10 mt-10">
     //   {dummyMovies.map((movie) => (
     //     <MovieCard item={movie} />
     //   ))}
     // </div>
-    <div className="py-8 bg-red-300">
-      <MovieRaw title="Trending Now" items={dummyMovies} />
+    <div>
+      <HeroBanner item={featured} />
+      <div className="py-8">
+        <MovieRow title="Trending Now" items={dummyMovies} />
+      </div>
     </div>
   );
 }
