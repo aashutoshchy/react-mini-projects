@@ -12,6 +12,7 @@ import Layout from "./components/Layout.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import Search from "./pages/Search.jsx";
+import MovieDetails from "./pages/MovieDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "search",
         element: <Search />,
+      },
+      {
+        path: "details/:id",
+        element: <MovieDetails />,
       },
     ],
   },

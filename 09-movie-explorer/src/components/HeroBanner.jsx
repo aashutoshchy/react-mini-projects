@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function HeroBanner({ item }) {
   return (
@@ -12,9 +13,12 @@ function HeroBanner({ item }) {
       <div className="absolute inset-0 flex flex-col justify-end ml-10 mb-20 gap-3">
         <h1 className="text-white font-extrabold text-3xl">{item.title}</h1>
         <p className="text-white/90 line-clamp-3">{item.overview}</p>
-        <button className="bg-white text-sm font-bold w-fit px-4 py-2 rounded-3xl">
+        <Link
+          to={`/details/${item.id}`}
+          className="bg-white text-sm font-bold w-fit px-4 py-2 rounded-3xl"
+        >
           See Details
-        </button>
+        </Link>
       </div>
     </section>
   );

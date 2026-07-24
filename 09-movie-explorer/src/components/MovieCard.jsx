@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function MovieCard({ item }) {
   return (
-    <div className="w-full bg-white overflow-hidden rounded-2xl">
+    <Link
+      to={`/details/${item.id}`}
+      className="w-full bg-white overflow-hidden rounded-2xl"
+    >
       <div className="aspect-[2/3] w-full">
         <img
           src={item.poster_path}
@@ -15,6 +20,6 @@ export default function MovieCard({ item }) {
           <span className="text-text/60">⭐ {item.vote_average}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
