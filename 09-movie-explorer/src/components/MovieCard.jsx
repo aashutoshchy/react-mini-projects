@@ -8,7 +8,7 @@ export default function MovieCard({ item }) {
     >
       <div className="aspect-[2/3] w-full">
         <img
-          src={item.poster_path}
+          src={`https://image.tmdb.org/t/p/w342/${item.poster_path}`}
           alt=""
           className="h-full w-full object-cover"
         />

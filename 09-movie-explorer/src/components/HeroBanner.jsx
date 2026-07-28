@@ -5,7 +5,7 @@ function HeroBanner({ item }) {
   return (
     <section className="relative w-full h-[77vh] overflow-hidden">
       <img
-        src={item.backdrop_path}
+        src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
         alt=""
         className="absolute inset-0 w-full h-full object-cover object-top"
       />
