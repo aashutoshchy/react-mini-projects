@@ -15,7 +15,7 @@ function HeroBanner({ item }) {
         <p className="text-white/90 line-clamp-3">{item.overview}</p>
         <Link
           to={`/details/${item.id}`}
-          className="bg-white text-sm font-bold w-fit px-4 py-2 rounded-3xl"
+          className="bg-white text-sm font-bold w-fit px-4 py-2 rounded-3xl hover:bg-white/80"
         >
           See Details
         </Link>
