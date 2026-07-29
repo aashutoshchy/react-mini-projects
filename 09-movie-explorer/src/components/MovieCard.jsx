@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 
 export default function MovieCard({ item }) {
+  const mediaType = item.media_type || "movie";
+
   return (
     <Link
-      to={`/details/${item.id}`}
+      to={`/details/${mediaType}/${item.id}`}
       className="w-full bg-white overflow-hidden rounded-2xl"
     >
       <div className="aspect-[2/3] w-full">

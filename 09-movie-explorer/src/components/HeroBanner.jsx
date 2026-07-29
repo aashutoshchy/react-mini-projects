@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function HeroBanner({ item }) {
+  const mediaType = item.media_type || "movie";
   return (
     <section className="relative w-full h-[77vh] overflow-hidden">
       <img
@@ -14,7 +15,7 @@ function HeroBanner({ item }) {
         <h1 className="text-white font-extrabold text-3xl">{item.title}</h1>
         <p className="text-white/90 line-clamp-3">{item.overview}</p>
         <Link
-          to={`/details/${item.id}`}
+          to={`/details/${mediaType}/${item.id}`}
           className="bg-white text-sm font-bold w-fit px-4 py-2 rounded-3xl hover:bg-white/80"
         >
           See Details

@@ -22,3 +22,11 @@ export async function searchMulti(query) {
   const data = await res.json();
   return data.results;
 }
+
+export async function getDetails(type, id) {
+  const url = `${BASE_URL}/${type}/${id}?api_key=${API_KEY}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data);
+  return data;
+}
