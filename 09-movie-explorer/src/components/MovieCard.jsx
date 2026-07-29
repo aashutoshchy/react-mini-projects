@@ -14,7 +14,7 @@ export default function MovieCard({ item }) {
         />
       </div>
       <div className="px-4 py-2">
-        <h3 className="font-bold truncate">{item.title}</h3>
+        <h3 className="font-bold truncate">{item.title || item.name}</h3>
         <div className="flex justify-between text-sm">
           <span className="text-text/80">{item.release_date}</span>
           <span className="text-text/60">⭐ {item.vote_average}</span>
