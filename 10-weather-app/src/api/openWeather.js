@@ -8,7 +8,7 @@ export const getWeatherByCity = async (city) => {
   return data;
 };
 
-const getNextHoursForecast = async (lat, lon) => {
+export const getNextHoursForecast = async (lat, lon) => {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`,
   );
